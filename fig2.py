@@ -7,6 +7,7 @@ from lifelines.plotting import add_at_risk_counts
 import numpy as np
 import matplotlib.font_manager as fm
 from matplotlib.ticker import MultipleLocator
+import argparse
 
 # Arialフォントの設定
 arial_path = 'data/fonts/arial.ttf'
@@ -20,6 +21,11 @@ plt.rcParams['axes.labelsize'] = 14
 plt.rcParams['xtick.labelsize'] = 12
 plt.rcParams['ytick.labelsize'] = 12
 plt.rcParams['legend.fontsize'] = 11
+
+# コマンドライン引数の処理
+parser = argparse.ArgumentParser()
+parser.add_argument('--noshow', action='store_true', help='Do not display the plot')
+args = parser.parse_args()
 
 # CSVファイルを読み込み
 df = pd.read_csv('data/osteoporosis_bone_meta.csv')
@@ -132,4 +138,6 @@ import os
 os.makedirs('out', exist_ok=True)
 plt.savefig('out/fig2.png', dpi=300, bbox_inches='tight')
 print('Figure 2 saved as out/fig2.png')
-plt.show()
+
+if not args.noshow:
+    plt.show()
