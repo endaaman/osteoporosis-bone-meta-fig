@@ -54,6 +54,9 @@ def plot_km_panel(ax, data, title):
         print("Log-rank test: N/A (insufficient data)")
 
     # KMプロット
+    # 論文用の落ち着いた色
+    colors = {'LRO': '#4A7BA7', 'HRO': '#C44E52'}  # 青と赤
+
     kmf_list = []
     for group in ['LRO', 'HRO']:
         mask = data['risk_group'] == group
@@ -61,7 +64,9 @@ def plot_km_panel(ax, data, title):
             n = mask.sum()
             kmf_temp = KaplanMeierFitter()
             kmf_temp.fit(data[mask]['BMFS'], data[mask]['BMFS_Event'], label=f'{group} (n={n})')
-            kmf_temp.plot(ax=ax, ci_show=False, show_censors=True, censor_styles={'ms': 8, 'marker': '|'})
+            kmf_temp.plot(ax=ax, ci_show=False, show_censors=True,
+                         censor_styles={'ms': 8, 'marker': '|'},
+                         color=colors[group])
             kmf_list.append(kmf_temp)
 
     # number at riskを表示
@@ -86,7 +91,7 @@ def plot_km_panel(ax, data, title):
     ax.set_title(title)
     ax.set_xlabel('Months after surgery')
     ax.set_ylabel('Bone metastasis-free ratio')
-    ax.set_xlim([0, 60])
+    ax.set_xlim([0, 65])  # padding rightで数字間隔を広げる
     ax.set_ylim([0, 1])
 
     # 右と上の枠線を非表示
@@ -109,11 +114,11 @@ def plot_km_panel(ax, data, title):
     ax.tick_params(axis='y', which='major', direction='out', length=6, width=1.2)
     ax.tick_params(axis='y', which='minor', direction='out', length=3, width=1)
 
-    # 凡例
-    ax.legend(loc='lower left', title=p_str)
+    # 凡例（軸線と同じ黒線）
+    legend = ax.legend(loc='lower left', title=p_str, frameon=True, edgecolor='black', fancybox=False)
 
 # Figure 2の作成 (number at riskのためにheightを増やす)
-fig, axes = plt.subplots(1, 3, figsize=(15, 6))
+fig, axes = plt.subplots(1, 3, figsize=(15, 5))
 
 # 各パネルをプロット
 plot_km_panel(axes[0], df.copy(), 'Enrolled women')
