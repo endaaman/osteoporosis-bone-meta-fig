@@ -97,7 +97,7 @@ def plot_km_panel(ax, data, title):
     ax.set_title(title)
     ax.set_xlabel('Months after surgery')
     ax.set_ylabel('Bone metastasis-free ratio')
-    ax.set_xlim([0, 65])  # padding rightで数字間隔を広げる
+    ax.set_xlim([0, 65.5])  # padding rightで数字間隔を広げる
     ax.set_ylim([0, 1])
 
     # 右と上の枠線を非表示
