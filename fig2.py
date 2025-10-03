@@ -77,7 +77,7 @@ def plot_km_panel(ax, data, title):
 
     # number at riskを表示
     if len(kmf_list) > 0:
-        add_at_risk_counts(*kmf_list, ax=ax, xticks=[0, 9, 19, 29, 39, 49, 59])
+        add_at_risk_counts(*kmf_list, ax=ax, xticks=[0, 9, 19, 29, 39, 49, 59], fontsize=11)
 
         # Number at riskの値を表示
         print("\nNumber at risk at key time points:")
@@ -132,6 +132,7 @@ plot_km_panel(axes[1], df[df['menopause'] == 0].copy(), 'Premenopausal women')
 plot_km_panel(axes[2], df[df['menopause'] == 1].copy(), 'Postmenopausal women')
 
 plt.tight_layout()
+plt.subplots_adjust(bottom=0.4)  # number at riskとプロットの間隔を広げる
 
 # out/ ディレクトリに出力
 import os

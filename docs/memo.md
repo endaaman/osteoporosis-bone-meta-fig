@@ -56,3 +56,16 @@ Figure のオリジナル
 修正後
 > Figure 3. Perioperative bone density test in enrolled women(差し替え予定、遠田作成)
 > a) Conduction rate of bone density tests in premenopausal and postmenopausal women (chi-square test). b) Correlation between T-scores and risk of osteoporosis in the enrolled women who underwent bone density testing (Spearman rank correlation).  
+
+
+Premenopausal (n=325):
+    Dxa presence=0: 287
+    Dxa presence=1: 38
+    Dxa presence=NA: 0
+    Rate (1/(0+1)): 0.117
+
+Postmenopausal (n=460):
+    Dxa presence=0: 107
+    Dxa presence=1: 346
+    Dxa presence=NA: 3
+    Rate (1/(0+1)): 0.764
