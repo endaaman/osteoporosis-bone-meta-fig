@@ -28,6 +28,10 @@ Figure のオリジナル
 > Figure 2. Univariate analyses for bone metastasis-free survival stratified by the menopausal status　(差し替え予定、遠田作成)
 > Survival analysis representing the proportion of bone metastasis-free patient-based risk of osteoporosis scores in a) all enrolled women, b) premenopausal women, and c) postmenopausal women. LRO; low risk of osteoporosis, HRO: high risk of osteoporosis
 
+修正後
+> Figure 2. Univariate analyses for bone metastasis-free survival stratified by the menopausal status　(差し替え予定、遠田作成)
+> Survival analysis representing the proportion of bone metastasis-free patient-based risk of osteoporosis scores in a) all enrolled women, b) premenopausal women, and c) postmenopausal women (log-rank test). LRO; low risk of osteoporosis, HRO: high risk of osteoporosis
+
 ---
 
 
@@ -45,5 +49,10 @@ b)RO とTscore の関連：Dxa presence(J列):  1の患者
      AI_Pの連続変数(G列)とTscore (L列)の相関係数とう
 
 
+Figure のオリジナル
 > Figure 3. Perioperative bone density test in enrolled women(差し替え予定、遠田作成)
-> a) Conduction rate of bone density tests in premenopausal and postmenopausal women. b) Correlation between T-scores and risk of osteoporosis in the enrolled women.  
+> a) Conduction rate of bone density tests in premenopausal and postmenopausal women. b) Correlation between T-scores and risk of osteoporosis in the enrolled women.
+
+修正後
+> Figure 3. Perioperative bone density test in enrolled women(差し替え予定、遠田作成)
+> a) Conduction rate of bone density tests in premenopausal and postmenopausal women (chi-square test). b) Correlation between T-scores and risk of osteoporosis in the enrolled women who underwent bone density testing (Spearman rank correlation).  

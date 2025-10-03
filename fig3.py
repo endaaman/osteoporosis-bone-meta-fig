@@ -4,7 +4,7 @@ import seaborn as sns
 import numpy as np
 import matplotlib.font_manager as fm
 from matplotlib.ticker import MultipleLocator
-from scipy.stats import pearsonr
+from scipy.stats import pearsonr, spearmanr
 import argparse
 from scipy.stats import chi2_contingency
 
@@ -112,17 +112,17 @@ dxa_patients['Tscore'] = pd.to_numeric(dxa_patients['Tscore'], errors='coerce')
 # 欠損値を除外
 dxa_patients = dxa_patients.dropna(subset=['AI_P', 'Tscore'])
 
-# 相関係数を計算
+# 相関係数を計算（Spearman）
 if len(dxa_patients) > 0:
-    r, p_value = pearsonr(dxa_patients['AI_P'], dxa_patients['Tscore'])
-    print(f"\nCorrelation: r={r:.3f}, p={p_value:.4f}")
+    r, p_value = spearmanr(dxa_patients['AI_P'], dxa_patients['Tscore'])
+    print(f"\nSpearman correlation: rs={r:.3f}, p={p_value:.4f}")
 
     # 散布図
     ax2.scatter(dxa_patients['AI_P'], dxa_patients['Tscore'],
                 color='#4A7BA7', s=50, alpha=0.6, edgecolors='black', linewidth=0.5)
 
     # 相関係数を凡例として表示
-    legend_text = f'r = {r:.3f}, p < 0.01' if p_value < 0.01 else f'r = {r:.3f}, p = {p_value:.2f}'
+    legend_text = f'rs = {r:.3f}, p < 0.01' if p_value < 0.01 else f'rs = {r:.3f}, p = {p_value:.2f}'
     ax2.legend([legend_text], loc='upper right', frameon=True, edgecolor='black', fancybox=False)
 
 # 軸設定
