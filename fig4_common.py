@@ -45,6 +45,7 @@ DISPLAY_NAMES = {
     'number of affected nodes': 'Affected nodes',
     'resected nodes': 'Resected nodes',
     'grade': 'Grade',
+    '閉経あり=1': 'Menopause',
 }
 
 

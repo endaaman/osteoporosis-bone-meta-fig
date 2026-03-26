@@ -300,8 +300,6 @@ def run_figure(base_feats, extra_feats, suffix):
         (axes[1], post, 'post', 'Postmenopausal women'),
         (axes[2], df, 'all', 'Enrolled women'),
     ]:
-        if extra_feats:
-            title += '\n(with resection features)'
         feats, shap_vals = plot_roc_panel(ax, data, title, base_feats, RISK, extra_feats)
         shap_data[key] = (feats, shap_vals)
 
@@ -321,8 +319,6 @@ def run_figure(base_feats, extra_feats, suffix):
             for key, title in [('pre', 'Premenopausal women'), ('post', 'Postmenopausal women')]:
                 feats, shap_vals = shap_data[key]
                 if shap_vals is not None:
-                    if extra_feats:
-                        title += '\n(with resection features)'
                     plot_shap_bar(axes_s[idx], shap_vals, feats, title)
                     idx += 1
             plt.tight_layout()
