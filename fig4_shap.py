@@ -146,7 +146,8 @@ for idx, (data, key, title) in enumerate(panels):
     shap.summary_plot(shap_vals, X_display, show=False, plot_size=None)
     plt.title(title)
     plt.tight_layout()
-    sum_path = f'out/fig4_{model_name}_shap_{key}.png'
+    sum_suffix = f'_{key}' if key != 'all' else ''
+    sum_path = f'out/fig4_{model_name}_shap{sum_suffix}.png'
     plt.savefig(sum_path, dpi=300, bbox_inches='tight')
     print(f'Summary saved as {sum_path}')
     plt.close(fig_sum)

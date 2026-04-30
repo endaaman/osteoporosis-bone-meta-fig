@@ -31,6 +31,7 @@ parser.add_argument('--noshow', action='store_true', help='Do not display the pl
 parser.add_argument('--model', choices=['lr', 'ridge', 'lasso', 'lgbm'], default='lr',
                     help='Model type (default: lr)')
 parser.add_argument('--shap', action='store_true', help='Generate SHAP plots')
+parser.add_argument('--without-resection', action='store_true', help='Also generate without resection')
 parser.add_argument('--n-splits', type=int, default=6, help='Number of CV folds')
 parser.add_argument('--seed', type=int, default=42, help='Random seed')
 args = parser.parse_args()
@@ -327,11 +328,12 @@ def run_figure(base_feats, extra_feats, suffix):
             print(f'SHAP saved as {shap_path}')
 
 
-# 切除検体因子なし
-run_figure(BASE_FEATURES, None, '')
+# 切除検体因子あり（デフォルト）
+run_figure(BASE_FEATURES, RESECTION_FEATURES, '')
 
-# 切除検体因子あり
-run_figure(BASE_FEATURES, RESECTION_FEATURES, '_resection')
+# 切除検体因子なし（オプション）
+if args.without_resection:
+    run_figure(BASE_FEATURES, None, '_without_resection')
 
 if not args.noshow:
     plt.show()

@@ -43,7 +43,7 @@ ax.legend(loc='lower right', frameon=True, edgecolor='black', fancybox=False)
 
 plt.tight_layout()
 os.makedirs('out', exist_ok=True)
-plt.savefig('out/fig4a.png', dpi=300, bbox_inches='tight')
+plt.savefig('out/fig4_ro.png', dpi=300, bbox_inches='tight')
 print('\nSaved as out/fig4a.png')
 
 if not args.noshow:
