@@ -7,3 +7,5 @@ bash scripts/fig3.sh
 bash scripts/fig4.sh
 bash scripts/fig4_ro.sh
 bash scripts/fig4_shap.sh
+bash scripts/fig5.sh
+bash scripts/fig6.sh
