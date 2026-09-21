@@ -97,7 +97,7 @@ def corr_report(name, x, y):
 def scatter_panel(ax, sub, label, stats, xlabel='Risk of osteoporosis'):
     ax.scatter(sub['AI_P'], sub['Tscore'], **MARKER)
     r_txt = f"{stats['r']:.2f}".replace('-', '\u2212')
-    ax.text(0.97, 0.97, f"rs = {r_txt}\nn = {stats['n']}\n{stats['p_text']}",
+    ax.text(0.97, 0.97, f"rs = {r_txt}\n{stats['p_text']}",
             transform=ax.transAxes, ha='right', va='top', fontsize=8,
             bbox=dict(boxstyle='square,pad=0.3', facecolor='white', edgecolor='black', linewidth=0.6))
     ax.set_xlabel(xlabel)
