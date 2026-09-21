@@ -128,7 +128,7 @@ if len(dxa_patients) > 0:
 # 軸設定
 ax2.set_xlabel('Risk of osteoporosis')
 ax2.set_ylabel('T-score')
-ax2.set_xlim([-0.1, 1.1])
+ax2.set_xlim([-0.05, 1.05])
 ax2.set_ylim([-4.5, 4.5])
 
 # X軸の設定：0.2刻みでmajor、0.1刻みでminor
