@@ -254,9 +254,9 @@ def main():
     for t, label in zip(TIME_POINTS, TIME_LABELS):
         print(f'{label} AUC: {aucs[t]:.3f}')
 
-    os.makedirs('out', exist_ok=True)
+    os.makedirs('out/rev0', exist_ok=True)
     suffix = '_with_resection' if args.with_resection else ''
-    out_path = f'out/fig5_nomogram{suffix}.png'
+    out_path = f'out/rev0/fig5_nomogram{suffix}.png'
     draw_nomogram(cph, data, feats, out_path)
 
     if not args.noshow:

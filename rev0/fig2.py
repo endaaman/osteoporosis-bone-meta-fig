@@ -136,8 +136,8 @@ plt.subplots_adjust(bottom=0.4)  # number at riskとプロットの間隔を広�
 
 # out/ ディレクトリに出力
 import os
-os.makedirs('out', exist_ok=True)
-plt.savefig('out/fig2.png', dpi=300, bbox_inches='tight')
+os.makedirs('out/rev0', exist_ok=True)
+plt.savefig('out/rev0/fig2.png', dpi=300, bbox_inches='tight')
 print('Figure 2 saved as out/fig2.png')
 
 if not args.noshow:

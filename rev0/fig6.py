@@ -1,8 +1,8 @@
 """Fig6: Time-dependent ROC + calibration plots for the Cox PH BMFS model.
 
 Outputs:
-    out/fig6_roc.png         (single ROC panel with 1y/3y/5y curves)
-    out/fig6_calibration.png (3 panels, one per time point)
+    out/rev0/fig6_roc.png         (single ROC panel with 1y/3y/5y curves)
+    out/rev0/fig6_calibration.png (3 panels, one per time point)
 """
 
 import argparse
@@ -127,7 +127,7 @@ def plot_calibration(times, events, surv, suffix):
         col_idx = TIME_POINTS.index(t_pt)
         calibration_one(ax, times, events, surv[:, col_idx], t_pt, label, args.n_groups)
     plt.tight_layout()
-    out_path = f'out/fig6_calibration{suffix}.png'
+    out_path = f'out/rev0/fig6_calibration{suffix}.png'
     plt.savefig(out_path, dpi=300, bbox_inches='tight')
     print(f'Saved: {out_path}')
 
@@ -136,7 +136,7 @@ def plot_roc_panel(times, events, risk, suffix):
     fig, ax = plt.subplots(figsize=(6, 5.5))
     plot_roc(ax, times, events, risk)
     plt.tight_layout()
-    out_path = f'out/fig6_roc{suffix}.png'
+    out_path = f'out/rev0/fig6_roc{suffix}.png'
     plt.savefig(out_path, dpi=300, bbox_inches='tight')
     print(f'Saved: {out_path}')
 
@@ -152,7 +152,7 @@ def main():
     times = data[TIME_COL].values
     events = data[TARGET].values.astype(int)
 
-    os.makedirs('out', exist_ok=True)
+    os.makedirs('out/rev0', exist_ok=True)
     suffix = '_with_resection' if args.with_resection else ''
 
     plot_roc_panel(times, events, risk, suffix)

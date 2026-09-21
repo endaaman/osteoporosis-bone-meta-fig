@@ -102,7 +102,7 @@ model_name = args.model
 
 print(f'SHAP: model={model_name}, CV={args.n_splits}-fold, seed={args.seed}')
 
-os.makedirs('out', exist_ok=True)
+os.makedirs('out/rev0', exist_ok=True)
 
 # barとsummaryの両方を生成
 panels = [
@@ -147,13 +147,13 @@ for idx, (data, key, title) in enumerate(panels):
     plt.title(title)
     plt.tight_layout()
     sum_suffix = f'_{key}' if key != 'all' else ''
-    sum_path = f'out/fig4_{model_name}_shap{sum_suffix}.png'
+    sum_path = f'out/rev0/fig4_{model_name}_shap{sum_suffix}.png'
     plt.savefig(sum_path, dpi=300, bbox_inches='tight')
     print(f'Summary saved as {sum_path}')
     plt.close(fig_sum)
 
 fig_bar.tight_layout()
-bar_path = f'out/fig4_{model_name}_shap_bar.png'
+bar_path = f'out/rev0/fig4_{model_name}_shap_bar.png'
 fig_bar.savefig(bar_path, dpi=300, bbox_inches='tight')
 print(f'\nBar saved as {bar_path}')
 

@@ -151,8 +151,8 @@ plt.tight_layout()
 
 # out/ ディレクトリに出力
 import os
-os.makedirs('out', exist_ok=True)
-plt.savefig('out/fig3.png', dpi=300, bbox_inches='tight')
+os.makedirs('out/rev0', exist_ok=True)
+plt.savefig('out/rev0/fig3.png', dpi=300, bbox_inches='tight')
 print('\nFigure 3 saved as out/fig3.png')
 
 if not args.noshow:

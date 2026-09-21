@@ -283,7 +283,7 @@ def plot_shap_bar(ax, shap_values, feature_names, title):
 # =========================================================
 # メイン
 # =========================================================
-os.makedirs('out', exist_ok=True)
+os.makedirs('out/rev0', exist_ok=True)
 model_name = args.model
 pre = df[df[MENOPAUSE] == 0]
 post = df[df[MENOPAUSE] == 1]
@@ -305,7 +305,7 @@ def run_figure(base_feats, extra_feats, suffix):
         shap_data[key] = (feats, shap_vals)
 
     plt.tight_layout()
-    roc_path = f'out/fig4_{model_name}{suffix}.png'
+    roc_path = f'out/rev0/fig4_{model_name}{suffix}.png'
     plt.savefig(roc_path, dpi=300, bbox_inches='tight')
     print(f'\nROC saved as {roc_path}')
 
@@ -323,7 +323,7 @@ def run_figure(base_feats, extra_feats, suffix):
                     plot_shap_bar(axes_s[idx], shap_vals, feats, title)
                     idx += 1
             plt.tight_layout()
-            shap_path = f'out/fig4_{model_name}{suffix}_shap.png'
+            shap_path = f'out/rev0/fig4_{model_name}{suffix}_shap.png'
             plt.savefig(shap_path, dpi=300, bbox_inches='tight')
             print(f'SHAP saved as {shap_path}')
 
